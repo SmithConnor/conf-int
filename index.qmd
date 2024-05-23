@@ -299,7 +299,7 @@ title = element_text(size = 24))
 
 ::: {.column width="50%"}
 \begin{align}
-P(\bar{X} < L(x)) & = P(\mu < `r round(conf_int[1], 2)`)\\
+P(\bar{X} < L(x)) & = P(\bar{X} < `r round(conf_int[1], 2)`)\\
 & = 0.025
 \end{align}
 
