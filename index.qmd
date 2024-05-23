@@ -14,7 +14,7 @@ author:
   - name: Connor Smith
     orcid: 0000-0002-3955-4348
     email: connor.smith@mq.edu.au
-    affiliations: Macquarie University
+    affiliations: https://smithconnor.github.io/conf-int
 date: last-modified
 ---
 
@@ -213,10 +213,17 @@ ii. $s = `r round(sd(sample2_dice), 2)`$.
 
 We can combine the sample mean and the standard error to create a confidence interval. In the instance, I am interested in creating a $95\%$ confidence interval.
 
+```{r}
+#| echo: true
+#| code-fold: true
+
+conf_int <- t.test(sample2_dice, conf.level = 0.95)$conf.int
+```
+
 A $95\%$ confidence interval for the population mean $\mu_{sides}$ is given by
 
 $$
-CI = ( `r round(mean2_dice - 1.96*sd(sample2_dice)/sqrt(n2), 2)` , `r round(mean2_dice + 1.96*sd(sample2_dice)/sqrt(n2), 2)` )
+CI = ( `r round(conf_int[1], 2)` , `r round(conf_int[2], 2)` )
 $$
 
 
@@ -276,7 +283,7 @@ $$
 #| code-fold: true
 #| fig-align: center
 
-df <- data.frame(xseq = seq(10.15-4,10.15+4,.01), densities = dnorm(seq(10.15-4,10.15+4,.01), 10.15, 4.15/sqrt(30)))
+df <- data.frame(xseq = seq(mean(sample2_dice)-4,mean(sample2_dice)+4,.01), densities = dnorm(seq(mean(sample2_dice)-4,mean(sample2_dice)+4,.01), mean(sample2_dice) , sd(sample2_dice)/sqrt(30)))
 ggplot(data = df, aes(x = xseq, y = densities)) +
  geom_point() + labs(title = "Normal Distribution", x = "", y = "Density") + theme_minimal() + theme(
 axis.text = element_text(size = 18),
@@ -292,45 +299,45 @@ title = element_text(size = 24))
 
 ::: {.column width="50%"}
 \begin{align}
-P(\mu < L(X)) & = P(\mu < `r round(mean2_dice - 1.96*sd(sample2_dice)/sqrt(n2), 2)`)\\
+P(\mu < L(X)) & = P(\mu < `r round(conf_int[1], 2)`)\\
 & = 0.025
 \end{align}
 
 ```{r}
 #| echo: true
-pnorm(7.18, 8.67, 4.15/sqrt(30))
+pnorm(7.12, 8.67, 4.15/sqrt(30))
 ```
 :::
 
 ::: {.column width="50%"}
 \begin{align}
-P(\mu > U(X)) & = P(\mu > `r round(mean2_dice + 1.96*sd(sample2_dice)/sqrt(n2), 2)`)\\
+P(\mu > U(X)) & = P(\mu > `r round(conf_int[2], 2)`)\\
 & = 0.025
 \end{align}
 
 ```{r}
 #| echo: true
-1 - pnorm(10.15, 8.67, 4.15/sqrt(30))
+1 - pnorm(10.22, 8.67, 4.15/sqrt(30))
 ```
 :::
 
 ::::
 
 \begin{align}
-P(L(X) < \mu < U(X)) & = P(7.18 < \mu < 10.15)\\
-& = 1 - P(\mu < 7.18) - P(\mu > 10.15)\\
+P(L(X) < \mu < U(X)) & = P(7.12 < \mu < 10.22)\\
+& = 1 - P(\mu < 7.12) - P(\mu > 10.22)\\
 & = 0.95
 \end{align}
 
 ```{r}
 #| echo: true
-1 - pnorm(7.18, 8.67, 4.15/sqrt(30)) - (1 - pnorm(10.15, 8.67, 4.15/sqrt(30)))
+1 - pnorm(7.12, 8.67, 4.15/sqrt(30)) - (1 - pnorm(10.22, 8.67, 4.15/sqrt(30)))
 ```
 
 
-## Interactive
+## Confidence Intervals (Interactive)
 
-### Confidence Intervals
+### observablehq.com/@mattiasvillani/confidence-interval-for-a-mean
 
 ```{ojs}
 textinfo = md`
@@ -423,6 +430,41 @@ data = {
 ```
 
 
+## Calculate in R
+
+### Confidence Intervals
+
+
+If you have a sample `X` you can calculate the confidence interval using the `t.test` function in R.
+
+```{r}
+#| echo: true
+#| eval: false
+
+t.test(X, conf.level = 0.95)$conf.int
+```
+
+This will return the confidence interval for the population mean $\mu_{X}$.
+
+## Example (Interpretation)
+
+### Confidence Intervals
+
+::: {.incremental}
+i. The long run proportion of confidence intervals that contain the true population parameter is $1-\alpha$ ($0.95$ if $\alpha = 0.05$).
+
+ii. For a $95\%$ confidence interval, there is a $95\%$ probability that the interval contains the true population parameter. 
+
+iii. There is **NOT** a $95\%$ probability that the true population parameter lies within the interval.
+
+iv. Values within the confidence interval are *"not statistically significantly different"* from the population parameter.
+
+v. Values outside the confidence interval are *"statistically significantly different"* from the population parameter.
+
+:::
+
+
+
 
 ## Other Population Parameters
 
@@ -466,7 +508,9 @@ The group work will be conducted in class the week after the lecture:
 
 ### Summative Assessment
 
+Honestly, the combination of written assessment and oral examination is a great way to assess student understanding of confidence intervals.
 
+- Only way to improve the assessment would be to shift from group work to individual work.
 
 ## Final Exam
 
