@@ -299,7 +299,7 @@ title = element_text(size = 24))
 
 ::: {.column width="50%"}
 \begin{align}
-P(\mu < L(X)) & = P(\mu < `r round(conf_int[1], 2)`)\\
+P(\bar{X} < L(x)) & = P(\mu < `r round(conf_int[1], 2)`)\\
 & = 0.025
 \end{align}
 
@@ -311,7 +311,7 @@ pnorm(7.12, 8.67, 4.15/sqrt(30))
 
 ::: {.column width="50%"}
 \begin{align}
-P(\mu > U(X)) & = P(\mu > `r round(conf_int[2], 2)`)\\
+P(\bar{X} > U(x)) & = P(\bar{X} > `r round(conf_int[2], 2)`)\\
 & = 0.025
 \end{align}
 
@@ -324,8 +324,8 @@ P(\mu > U(X)) & = P(\mu > `r round(conf_int[2], 2)`)\\
 ::::
 
 \begin{align}
-P(L(X) < \mu < U(X)) & = P(7.12 < \mu < 10.22)\\
-& = 1 - P(\mu < 7.12) - P(\mu > 10.22)\\
+P(L(x) < \bar{X} < U(x)) & = P(7.12 < \bar{X} < 10.22)\\
+& = 1 - P(\bar{X} < 7.12) - P(\bar{X} > 10.22)\\
 & = 0.95
 \end{align}
 
