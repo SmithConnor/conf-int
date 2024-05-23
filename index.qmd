@@ -267,9 +267,14 @@ $$
 
 ### Confidence Intervals
 
+$$
+\bar{X} \overset{approx}\sim N(`r round(mean(sample2_dice),2)`, `r round(sd(sample2_dice),2)`^2/`r n2`)
+$$
+
 ```{r}
 #| echo: true
 #| code-fold: true
+#| fig-align: center
 
 df <- data.frame(xseq = seq(10.15-4,10.15+4,.01), densities = dnorm(seq(10.15-4,10.15+4,.01), 10.15, 4.15/sqrt(30)))
 ggplot(data = df, aes(x = xseq, y = densities)) +
@@ -310,6 +315,17 @@ P(\mu > U(X)) & = P(\mu > `r round(mean2_dice + 1.96*sd(sample2_dice)/sqrt(n2), 
 :::
 
 ::::
+
+\begin{align}
+P(L(X) < \mu < U(X)) & = P(7.18 < \mu < 10.15)\\
+& = 1 - P(\mu < 7.18) - P(\mu > 10.15)\\
+& = 0.95
+\end{align}
+
+```{r}
+#| echo: true
+1 - pnorm(7.18, 8.67, 4.15/sqrt(30)) - (1 - pnorm(10.15, 8.67, 4.15/sqrt(30)))
+```
 
 
 ## Interactive
@@ -406,6 +422,8 @@ data = {
 }
 ```
 
+
+
 ## Other Population Parameters
 
 ### Confidence Intervals
@@ -448,9 +466,15 @@ The group work will be conducted in class the week after the lecture:
 
 ### Summative Assessment
 
+
+
 ## Final Exam
 
 ### Summative Assessment
+
+**Analyse:** Done through the linking of confidence intervals with hypothesis testing.
+
+**Evaluate:** Game show where students must guess the price of an item using an interval of fixed length. Question asks students to discuss the size of the interval and how this impacts the players and hosts.
 
 # Pedagogical Approach
 
