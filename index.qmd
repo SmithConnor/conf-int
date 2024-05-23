@@ -1,5 +1,5 @@
 ---
-title: Confidence Intervals of the Mean
+title: Confidence Interval of the Mean
 subtitle: How to be confident about your uncertainty
 format: 
     clean-revealjs
@@ -15,34 +15,35 @@ date: last-modified
 ---
 
 ```{r}
-set.seed(123)
+#| message: false
+#| warning: false
+
+library(ggplot2)
+set.seed(2405)
 ```
 
 ## An Initial Guess (Point Estimation)
 
 ### Lecture Attendance
 
-At the beginning of semester, I guessed that the average lecture attendance would be $100$ students. *(Data collected from Weeks 1 to 7)*
+At the beginning of semester, I guessed that the average lecture attendance would be $105.2$ students. *(Data collected from Weeks 1 to 7)*
 
-i. This was my best guess, but I was uncertain about it.
+i.  This was my best guess, but I was uncertain about it.
 ii. I have a few tricks up my sleeve to help me be more confident about my estimate.
-
-
 
 ## A Better Guess (Interval Estimation)
 
 ### Lecture Attendance
 
-I collected data from previous semesters and used this information to improve my estimate.
+I collected data from previous semesters and use this information to improve my estimate.
 
-i. The smallest average attendance was $81.1$ students.
+i.  The smallest average attendance was $81.1$ students.
 
 ii. The largest average attendance was $118.9$ students.
 
 So, to improve my estimate, I can say that the average lecture attendance will probably be between $81.1$ and $118.9$ students.
 
-
-:::{.callout-important}
+::: callout-important
 ## Actual Data
 
 I have been collecting data on lecture attendance for the first seven weeks of semester. The average attendance was $95.2$ students.
@@ -62,11 +63,10 @@ $$
 
 where $L(X)$ is the lower bound and $U(X)$ is the upper bound.
 
-:::{.callout-note}
+::: callout-note
 ## Using our data
 
 Since $L(X)$ and $U(X)$ are a function of the random sample $X$, we will use our data to calculate this interval.
-
 :::
 
 ## Desirable Properties
@@ -75,34 +75,37 @@ Since $L(X)$ and $U(X)$ are a function of the random sample $X$, we will use our
 
 <br>
 
-1. The confidence interval contains the true population parameter with a specified probability.
+1.  The confidence interval contains the true population parameter with a specified probability.
 
 <br>
 
-2. The interval is the shortest possible for a specified probability.
+2.  The interval is the shortest possible for a specified probability.
 
-## General Form
+## Counting Dice Example
 
 ### Confidence Intervals
 
+::: columns
+::: {.column width="50%"}
+![Collection of Board Games](images/IMG20240419084234.jpg){fig-align="center" width="80%"}
+:::
+
+::: {.column width="50%"}
+In tabletop games, dice are used to generate random numbers.
+
 <br>
 
-We can write the general form of a confidence interval as
-
-$$
-\text{sample statistic} \pm \text{margin of error}
-$$
-
-where the margin of error is a function of the sample size $n$ and the sample standard deviation $s$.
+I have a collection of dice with different numbers of sides. The sides of the dice are $4$, $6$, $8$, $10$, $12$, and $20$.
+:::
+:::
 
 ## Example
 
 ### Confidence Intervals
 
-In tabletop games, dice are used to generate random numbers. After purchasing many different dice, I have a bag of $n=100$ dice.
+After purchasing many different dice, I have a bag of $n=100$ dice.
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="70%"}
 ```{r}
 #| code-fold: true
@@ -113,16 +116,18 @@ sides <- c(4, 6, 8, 10, 12, 20)
 dice <- sample(sides, N, replace = TRUE)
 ```
 
-If I take a sample of size $n=5$, I can calculate the sample mean $\bar{x}$.
+If I take a sample of size $n=5$ (with replacement), I can calculate the sample mean $\bar{x}$.
 
 ```{r}
 #| code-fold: true
 #| echo: true
 
 n1 <- 5
-sample1_dice <- sample(dice, n1, replace = FALSE)
+sample1_dice <- sample(dice, n1, replace = TRUE)
 mean1_dice <- mean(sample1_dice)
 ```
+
+Therefore $\bar{x} = (`r paste(sample1_dice, collapse = "+")`)/`r n1` = `r mean1_dice`$.
 :::
 
 ::: {.column width="30%"}
@@ -131,16 +136,63 @@ mean1_dice <- mean(sample1_dice)
 
 knitr::kable(data.frame(sample = 1:n1, sides = sample1_dice), caption = "First Sample", format = "html", col.names = c("Sample", "Sides"))
 ```
+:::
+:::
+
+## Central Limit Theorem
+
+### Confidence Intervals
+
+We have already learnt about the Central Limit Theorem (CLT) and some of its very useful properties. We now take a larger sample of size $n=30$.
+
+::: columns
+::: {.column width="60%"}
+
+```{r}
+#| code-fold: true
+#| echo: true
+
+n2 <- 30
+sample2_dice <- sample(dice, n2, replace = TRUE)
+mean2_dice <- mean(sample2_dice)
+
+ggplot(data = data.frame(x = sample2_dice), aes(x = x)) +
+geom_histogram(binwidth = 1,
+fill = "#107895",
+color = "black") +
+labs(title = "Second Sample of Dice", x = "Sides", y = "Count") + scale_x_continuous(breaks = sides) + scale_y_continuous(breaks = seq(0, 10, 1)) + theme_minimal() +
+theme(
+axis.text = element_text(size = 18),
+axis.title = element_text(size = 18),
+title = element_text(size = 24)
+)
+```
 
 :::
 
+::: {.column width="40%"}
+
+From our new sample:
+
+i. $\bar{x} = `r round(mean2_dice, 2)`$, and
+
+ii. $s = `r round(sd(sample2_dice), 2)`$.
+
+:::
 ::::
 
-
-
-## Example Cont.
+## Confidence Intervals
 
 ### Confidence Intervals
+
+We can combine the sample mean and the standard error to create a confidence interval. In the instance, I am interested in creating a $95\%$ confidence interval.
+
+A $95\%$ confidence interval for the population mean $\mu_{sides}$ is given by
+
+$$
+CI = ( `r round(mean2_dice - 1.96*sd(sample2_dice)/sqrt(n2), 2)` , `r round(mean2_dice + 1.96*sd(sample2_dice)/sqrt(n2), 2)` )
+$$
+
 
 
 
@@ -148,10 +200,8 @@ knitr::kable(data.frame(sample = 1:n1, sides = sample1_dice), caption = "First S
 
 ### Confidence Intervals
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="40%"}
-
 ```{r}
 #| code-fold: true
 
@@ -162,12 +212,9 @@ knitr::kable(table(dice), caption = "Dice in the bag", format = "html", col.name
 ::: {.column width="60%"}
 Let's see how we did. The table shows the number of each type of dice in the dice bag.
 
-We can see that the population mean is $\mu_{\text{sides}} =$ `r mean(dice)`.
-
+We can see that the population mean is $\mu_{\text{sides}} = `r mean(dice)`$.
 :::
-
-::::
-
+:::
 
 ## How confident are we?
 
@@ -185,64 +232,132 @@ $$
 P(\mu < L(X)) + P(\mu > U(X)) = \alpha
 $$
 
-
-
-## Improving our estimate
+## Checking our Confidence interval
 
 ### Confidence Intervals
 
-The confidence interval is a function of the sample size $n$ and the sample standard deviation $s$ (if the population standard deviation in unknown).
+:::: columns
 
-:::{.incremental}
+::: {.column width="50%"}
+\begin{align}
+P(\mu < L(X)) & = P(\mu < `r round(mean2_dice - 1.96*sd(sample2_dice)/sqrt(n2), 2)`)\\
+& = 0.025
+\end{align}
 
-i. As the sample size increases, the confidence interval becomes narrower.
-ii. As the sample standard deviation decreases, the confidence interval becomes narrower.
-
+```{r}
+#| echo: true
+pnorm(7.18, 8.67, 4.15/sqrt(30))
+```
 :::
 
-## A Bag of Dice
-
-### Confidence Intervals
-
-```{r}
-#| code-fold: true
-
-N <- 100
-sides <- c(4, 6, 8, 10, 12, 20)
-dice <- sample(sides, N, replace = TRUE)
-```
-
-Suppose we have a bag of `r N` dice. 
-
-## Sample Mean
-
-### Confidence Intervals
-
-My population in this example is the bag of dice. I want to estimate the average number of sides on the dice, $\mu_{\text{sides}}$.
+::: {.column width="50%"}
+\begin{align}
+P(\mu > U(X)) & = P(\mu < `r round(mean2_dice - 1.96*sd(sample2_dice)/sqrt(n2), 2)`)\\
+& = 0.025
+\end{align}
 
 ```{r}
-#| code-fold: true
 #| echo: true
-
-n1 <- 5
-sample1_dice <- sample(dice, n1, replace = FALSE)
-mean1_dice <- mean(sample1_dice)
+1 - pnorm(10.15, 8.67, 4.15/sqrt(30))
 ```
+:::
 
-If I take a sample fo size $n =$ `r n1`, I can calculate the sample mean $\bar{x} =$ `r mean1_dice`.
+::::
 
-## Sample Mean Again
+
+## Interactive
 
 ### Confidence Intervals
 
-```{r}
-sample2_dice <- sample(dice, n1, replace = FALSE)
-mean2_dice <- mean(sample2_dice)
+```{ojs}
+textinfo = md`
+Out of a total of ${nrep} samples, ${d3.sum(data.map(d => d.rep <= nrep && (mu >= d.lower && mu <= d.upper)))} (**<span style="color:red">${(d3.sum(data.map(d => d.rep <= nrep && (mu >= d.lower && mu <= d.upper)))*100/nrep).toFixed(3)}%</span>**) of the ${confidence}% confidence intervals contained the true population mean ${tex`\mu= `} ${mu}.
+`
 
-knitr::kable(data.frame(sample1_dice, sample2_dice), caption = "Sample of dice sides", format = "html", col.names = c("Sample 1", "Sample 2"))
+viewof nrep = Scrubber(d3.ticks(1, 1000, 1000), {
+  autoplay: false,
+  loop: false,
+  initial: 1,
+  delay: 500,
+  format: x => `Number of repeats = ${x.toFixed(0)}`
+})
+
+plt = Plot.plot({
+  style: {fontSize: "12px"},
+  width: 960,
+  y: {
+    label: "Mean",
+    domain: lockvertical ? [mu- 3, mu + 3] : [mu - 5*sigma/Math.sqrt(nobs),mu + 5*sigma/Math.sqrt(nobs)]
+  },
+  x: {
+    label: "Sample Number",
+    domain:  [0, nrep]
+  },
+  marks: [
+    Plot.ruleX([0]),    
+    Plot.ruleX(data, {
+      filter: d => (d.rep <= nrep && mu >= d.lower && mu <= d.upper),
+      x: "rep",
+      y1: "lower",
+      y2: "upper",  
+      stroke: "#107895",
+      strokeWidth: 1.5
+    }),
+    Plot.dot(data, {filter: d => (d.rep <= nrep && mu >= d.lower && mu <= d.upper), x: "rep", y: "xbar", fill: "#107895", r: 3}),
+
+    Plot.ruleX(data, {
+      filter: d => d.rep <= nrep && (mu < d.lower || mu > d.upper),
+      x: "rep",
+      y1: "lower",
+      y2: "upper",  
+      stroke: "red",
+      strokeWidth: 1.5
+    }),
+    Plot.dot(data, {filter: d => d.rep <= nrep && (mu < d.lower || mu > d.upper), x: "rep", y: "xbar", fill: "red", r: 3}),
+    Plot.ruleY([mu], {stroke: "black", strokeWidth: 1.5})
+
+  ]
+})
+
+jstat = require('jstat')
+
+import {Scrubber} from "@mbostock/scrubber"
+
+function simulate_means(mu, sigma, nobs, nrep){
+  
+  const tvalue = jstat.studentt.inv(1-(1-(confidence/100))/2, nobs-1);
+  var data = [];
+  for (let j = 1; j <= nrep; j++){
+        let sample = d3.range(nobs).map(d => d3.randomNormal(mu,sigma)())
+        let xbar = d3.mean(sample)
+        let s = jstat.stdev(sample, true) 
+        let lower = xbar - tvalue*s/Math.sqrt(nobs)
+        let upper = xbar + tvalue*s/Math.sqrt(nobs)
+        data.push({rep: j, xbar: xbar, lower: lower, upper: upper})
+  }
+  return data
+}
+
+mu = 9.62
+
+sigma = 4.737088
+
+confidence = 95
+
+nobs = 30
+
+lockvertical = false
+
+data = {
+  nobs;
+  mu;
+  sigma;
+  const d = new Date();
+  let time = d.getTime();
+  const data = simulate_means(mu, sigma, nobs, 1000)
+  return data
+}
 ```
-
-Lets repeat this process again. We take another sample of size $n =$ `r n1` and calculate the sample mean $\bar{x} =$ `r mean2_dice`.
 
 ## Other Population Parameters
 
@@ -250,7 +365,7 @@ Lets repeat this process again. We take another sample of size $n =$ `r n1` and 
 
 We can also use confidence intervals to estimate other population parameters. We might also be interested in:
 
-i. The population variance $\sigma^2$,
+i.  The population variance $\sigma^2$,
 ii. The population standard deviation $\sigma$, and
 iii. The population proportion $p$.
 
@@ -264,11 +379,11 @@ This list is in no way exhaustive.
 
 Describe a situation where using a confidence interval instead of a point estimate would be more effective in communicating a topic of interest. (Choose a topic that is related to your major)
 
-- Links to cohort specific topics,
+-   Links to cohort specific topics,
 
-- Use case scenarios, and
+-   Use case scenarios, and
 
-- Identify context specific scenarios to shape future assessments.
+-   Identify context specific scenarios to shape future assessments.
 
 ## Group Work
 
@@ -286,14 +401,9 @@ The group work will be conducted in class the week after the lecture:
 
 ### Summative Assessment
 
-
-
 ## Final Exam
 
 ### Summative Assessment
-
-
-
 
 # Pedagogical Approach
 
@@ -309,7 +419,6 @@ The group work will be conducted in class the week after the lecture:
 
 **Socratic:** The end goal but finding a practical implementation is difficult.
 
-
 # Educational Excellence
 
 ## Initiative 01
@@ -318,17 +427,16 @@ The group work will be conducted in class the week after the lecture:
 
 Implementation of "Minute Papers" to improve student engagement and feedback.
 
-1. Identify gaps in knowledge and effectiveness of teaching for a specific cohort.
+1.  Identify gaps in knowledge and effectiveness of teaching for a specific cohort.
 
-2. Share common thoughts and feelings with the student cohort.
+2.  Share common thoughts and feelings with the student cohort.
 
-3. Use data to adapt tutorial activities to improve learning outcomes (and address student concerns).
+3.  Use data to adapt tutorial activities to improve learning outcomes (and address student concerns).
 
-:::{.callout-tip}
+::: callout-tip
 ## Sydney in 2032 Strategy
 
 *To drive a transformational experience, we will improve how we learn from data and insights from our students, staff and partners to ensure teaching contributes more effectively to desired learning outcomes*
-
 :::
 
 ## Initiative 02
@@ -337,15 +445,14 @@ Implementation of "Minute Papers" to improve student engagement and feedback.
 
 Implementation of Universal Design for Learning (UDL) principles to improve inclusivity and accessibility.
 
-1. Develop a more inclusive learning environment for all students.
+1.  Develop a more inclusive learning environment for all students.
 
-2. Provide a range of teaching and assessment methods to cater for diverse learning styles.
+2.  Provide a range of teaching and assessment methods to cater for diverse learning styles.
 
-3. Ensure that all students have the opportunity to succeed, regardless of their background or circumstances.
+3.  Ensure that all students have the opportunity to succeed, regardless of their background or circumstances.
 
-:::{.callout-tip}
+::: callout-tip
 ## Sydney in 2032 Strategy
 
 *By ensuring our academic and teaching support staff are highly skilled in inclusive teaching practices, we will be better equipped to support students on their learning journeys.*
-
 :::
