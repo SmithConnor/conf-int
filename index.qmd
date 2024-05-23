@@ -14,6 +14,10 @@ author:
 date: last-modified
 ---
 
+```{r}
+set.seed(123)
+```
+
 ## An Initial Guess (Point Estimation)
 
 ### Lecture Attendance
@@ -65,31 +69,31 @@ Since $L(X)$ and $U(X)$ are a function of the random sample $X$, we will use our
 
 :::
 
-## Examples of Intervals
-
-### Confidence Intervals
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-:::
-
-::: {.column width="50%"}
-
-:::
-
-:::{.columns}
-
 ## Desirable Properties
 
 ### Confidence Intervals
 
-## Knowing the Sample Distribution
+<br>
+
+1. The confidence interval contains the true population parameter with a specified probability.
+
+<br>
+
+2. The interval is the shortest possible for a specified probability.
+
+## General Form
 
 ### Confidence Intervals
 
+<br>
 
+We can write the general form of a confidence interval as
+
+$$
+\text{sample statistic} \pm \text{margin of error}
+$$
+
+where the margin of error is a function of the sample size $n$ and the sample standard deviation $s$.
 
 ## Example
 
@@ -97,8 +101,12 @@ Since $L(X)$ and $U(X)$ are a function of the random sample $X$, we will use our
 
 In tabletop games, dice are used to generate random numbers. After purchasing many different dice, I have a bag of $n=100$ dice.
 
+:::: {.columns}
+
+::: {.column width="70%"}
 ```{r}
 #| code-fold: true
+#| echo: true
 
 N <- 100
 sides <- c(4, 6, 8, 10, 12, 20)
@@ -109,11 +117,32 @@ If I take a sample of size $n=5$, I can calculate the sample mean $\bar{x}$.
 
 ```{r}
 #| code-fold: true
+#| echo: true
 
 n1 <- 5
 sample1_dice <- sample(dice, n1, replace = FALSE)
 mean1_dice <- mean(sample1_dice)
 ```
+:::
+
+::: {.column width="30%"}
+```{r}
+#| code-fold: true
+
+knitr::kable(data.frame(sample = 1:n1, sides = sample1_dice), caption = "First Sample", format = "html", col.names = c("Sample", "Sides"))
+```
+
+:::
+
+::::
+
+
+
+## Example Cont.
+
+### Confidence Intervals
+
+
 
 ## Actual Count
 
@@ -121,16 +150,16 @@ mean1_dice <- mean(sample1_dice)
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 
 ```{r}
 #| code-fold: true
 
-knitr::kable(table(dice), caption = "Number of each type of dice in the bag", format = "html", col.names = c("Dice", "Count"))
+knitr::kable(table(dice), caption = "Dice in the bag", format = "html", col.names = c("Dice", "Count"))
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 Let's see how we did. The table shows the number of each type of dice in the dice bag.
 
 We can see that the population mean is $\mu_{\text{sides}} =$ `r mean(dice)`.
@@ -156,30 +185,6 @@ $$
 P(\mu < L(X)) + P(\mu > U(X)) = \alpha
 $$
 
-## Desirable Properties
-
-### Confidence Intervals
-
-A good confidence interval has the following properties:
-
-:::{.incremental}
-
-i. **Validity**: The interval contains the true population parameter with probability $1 - \alpha$.
-ii. **Precision**: The interval is as narrow as possible.
-
-
-:::
-
-## Example
-
-### Data
-
-
-
-## Possible Missinterpretations
-
-### Confidence Intervals
-
 
 
 ## Improving our estimate
@@ -194,16 +199,6 @@ i. As the sample size increases, the confidence interval becomes narrower.
 ii. As the sample standard deviation decreases, the confidence interval becomes narrower.
 
 :::
-
-## Other Population Parameters
-
-### Confidence Intervals
-
-We can also use confidence intervals to estimate other population parameters. We might also be interested in:
-
-i. The population variance $\sigma^2$,
-ii. The population standard deviation $\sigma$, and
-iii. The population proportion $p$.
 
 ## A Bag of Dice
 
@@ -249,22 +244,54 @@ knitr::kable(data.frame(sample1_dice, sample2_dice), caption = "Sample of dice s
 
 Lets repeat this process again. We take another sample of size $n =$ `r n1` and calculate the sample mean $\bar{x} =$ `r mean2_dice`.
 
+## Other Population Parameters
+
+### Confidence Intervals
+
+We can also use confidence intervals to estimate other population parameters. We might also be interested in:
+
+i. The population variance $\sigma^2$,
+ii. The population standard deviation $\sigma$, and
+iii. The population proportion $p$.
+
+This list is in no way exhaustive.
+
 # Assessment
 
-## Group Work 
+## Individual Work
 
-### Assessment
+### Formative Assessment
 
-In your class
+Describe a situation where using a confidence interval instead of a point estimate would be more effective in communicating a topic of interest. (Choose a topic that is related to your major)
+
+- Links to cohort specific topics,
+
+- Use case scenarios, and
+
+- Identify context specific scenarios to shape future assessments.
+
+## Group Work
+
+### Formative Assessment
+
+The group work will be conducted in class the week after the lecture:
+
+(a) Provide a subjective $95\%$ confidence interval for a tutorial specific fact. Discuss.
+
+(b) Repeat step (a) for a new fact but include a point estimate. Discuss.
+
+(c) Create a $95\%$ confidence interval for a new fact using actual data and CLT. Discuss.
+
+## Assessment
+
+### Summative Assessment
 
 
-## Formative
 
-### Assessment
+## Final Exam
 
-## Summative
+### Summative Assessment
 
-### Assessment
 
 
 
@@ -273,6 +300,14 @@ In your class
 ## Choice of Approach
 
 ### Pedagogical Approach
+
+**Behaviourism:** Due to the content heavy nature of statistics, the initial focus will be on rote learning and memorisation of key concepts.
+
+**Constructivism:** Explored through Tutorials and Workshops, students will be able to construct their own understanding of the material.
+
+**Reflective:** Through individual and group work, students will be able to reflect on their learning and identify areas for improvement.
+
+**Socratic:** The end goal but finding a practical implementation is difficult.
 
 
 # Educational Excellence

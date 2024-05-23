@@ -466,42 +466,108 @@ Connor Smith <a href="https://orcid.org/0000-0002-3955-4348" class="quarto-title
 </div>
 </div>
 </section>
-<section id="examples-of-intervals" class="slide level2">
-<h2>Examples of Intervals</h2>
-<h3 id="confidence-intervals-1">Confidence Intervals</h3>
-<p>:::{.columns}</p>
-<div class="column" style="width:50%;">
-
-</div>
-<div class="column" style="width:50%;">
-
-</div>
-<p>:::{.columns}</p>
-</section>
 <section id="desirable-properties" class="slide level2">
 <h2>Desirable Properties</h2>
-<h3 id="confidence-intervals-2">Confidence Intervals</h3>
+<h3 id="confidence-intervals-1">Confidence Intervals</h3>
+<p><br></p>
+<ol type="1">
+<li>The confidence interval contains the true population parameter with a specified probability.</li>
+</ol>
+<p><br></p>
+<ol start="2" type="1">
+<li>The interval is the shortest possible for a specified probability.</li>
+</ol>
 </section>
-<section id="knowing-the-sample-distribution" class="slide level2">
-<h2>Knowing the Sample Distribution</h2>
-<h3 id="confidence-intervals-3">Confidence Intervals</h3>
+<section id="general-form" class="slide level2">
+<h2>General Form</h2>
+<h3 id="confidence-intervals-2">Confidence Intervals</h3>
+<p><br></p>
+<p>We can write the general form of a confidence interval as</p>
+<p><span class="math display">\[
+\text{sample statistic} \pm \text{margin of error}
+\]</span></p>
+<p>where the margin of error is a function of the sample size <span class="math inline">\(n\)</span> and the sample standard deviation <span class="math inline">\(s\)</span>.</p>
 </section>
 <section id="example" class="slide level2">
 <h2>Example</h2>
-<h3 id="confidence-intervals-4">Confidence Intervals</h3>
+<h3 id="confidence-intervals-3">Confidence Intervals</h3>
 <p>In tabletop games, dice are used to generate random numbers. After purchasing many different dice, I have a bag of <span class="math inline">\(n=100\)</span> dice.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-2"><a href=""></a>sides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">20</span>)</span>
+<span id="cb1-3"><a href=""></a>dice <span class="ot">&lt;-</span> <span class="fu">sample</span>(sides, N, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>If I take a sample of size <span class="math inline">\(n=5\)</span>, I can calculate the sample mean <span class="math inline">\(\bar{x}\)</span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>n1 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb2-2"><a href=""></a>sample1_dice <span class="ot">&lt;-</span> <span class="fu">sample</span>(dice, n1, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-3"><a href=""></a>mean1_dice <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample1_dice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true">
+<caption>First Sample</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sample</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sides</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">8</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-cont." class="slide level2">
+<h2>Example Cont.</h2>
+<h3 id="confidence-intervals-4">Confidence Intervals</h3>
 </section>
 <section id="actual-count" class="slide level2">
 <h2>Actual Count</h2>
 <h3 id="confidence-intervals-5">Confidence Intervals</h3>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:40%;">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <table data-quarto-postprocess="true">
-<caption>Number of each type of dice in the bag</caption>
+<caption>Dice in the bag</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Dice</th>
@@ -511,11 +577,11 @@ Connor Smith <a href="https://orcid.org/0000-0002-3955-4348" class="quarto-title
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">4</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">19</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">6</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">15</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">8</td>
@@ -523,15 +589,15 @@ Connor Smith <a href="https://orcid.org/0000-0002-3955-4348" class="quarto-title
 </tr>
 <tr class="even">
 <td style="text-align: left;">10</td>
-<td style="text-align: right;">23</td>
+<td style="text-align: right;">11</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">12</td>
-<td style="text-align: right;">20</td>
+<td style="text-align: right;">16</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">20</td>
-<td style="text-align: right;">15</td>
+<td style="text-align: right;">21</td>
 </tr>
 </tbody>
 </table>
@@ -540,7 +606,7 @@ Connor Smith <a href="https://orcid.org/0000-0002-3955-4348" class="quarto-title
 </div>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:60%;">
 <p>Let’s see how we did. The table shows the number of each type of dice in the dice bag.</p>
 <p>We can see that the population mean is <span class="math inline">\(\mu_{\text{sides}} =\)</span> 10.32.</p>
 </div>
@@ -558,28 +624,9 @@ P(L(X) \leqslant \mu \leqslant U(X)) = 1 - \alpha
 P(\mu &lt; L(X)) + P(\mu &gt; U(X)) = \alpha
 \]</span></p>
 </section>
-<section id="desirable-properties-1" class="slide level2">
-<h2>Desirable Properties</h2>
-<h3 id="confidence-intervals-7">Confidence Intervals</h3>
-<p>A good confidence interval has the following properties:</p>
-<div>
-<ol type="i">
-<li class="fragment"><strong>Validity</strong>: The interval contains the true population parameter with probability <span class="math inline">\(1 - \alpha\)</span>.</li>
-<li class="fragment"><strong>Precision</strong>: The interval is as narrow as possible.</li>
-</ol>
-</div>
-</section>
-<section id="example-1" class="slide level2">
-<h2>Example</h2>
-<h3 id="data">Data</h3>
-</section>
-<section id="possible-missinterpretations" class="slide level2">
-<h2>Possible Missinterpretations</h2>
-<h3 id="confidence-intervals-8">Confidence Intervals</h3>
-</section>
 <section id="improving-our-estimate" class="slide level2">
 <h2>Improving our estimate</h2>
-<h3 id="confidence-intervals-9">Confidence Intervals</h3>
+<h3 id="confidence-intervals-7">Confidence Intervals</h3>
 <p>The confidence interval is a function of the sample size <span class="math inline">\(n\)</span> and the sample standard deviation <span class="math inline">\(s\)</span> (if the population standard deviation in unknown).</p>
 <div>
 <ol type="i">
@@ -588,38 +635,28 @@ P(\mu &lt; L(X)) + P(\mu &gt; U(X)) = \alpha
 </ol>
 </div>
 </section>
-<section id="other-population-parameters" class="slide level2">
-<h2>Other Population Parameters</h2>
-<h3 id="confidence-intervals-10">Confidence Intervals</h3>
-<p>We can also use confidence intervals to estimate other population parameters. We might also be interested in:</p>
-<ol type="i">
-<li>The population variance <span class="math inline">\(\sigma^2\)</span>,</li>
-<li>The population standard deviation <span class="math inline">\(\sigma\)</span>, and</li>
-<li>The population proportion <span class="math inline">\(p\)</span>.</li>
-</ol>
-</section>
 <section id="a-bag-of-dice" class="slide level2">
 <h2>A Bag of Dice</h2>
-<h3 id="confidence-intervals-11">Confidence Intervals</h3>
+<h3 id="confidence-intervals-8">Confidence Intervals</h3>
 <p>Suppose we have a bag of 100 dice.</p>
 </section>
 <section id="sample-mean" class="slide level2">
 <h2>Sample Mean</h2>
-<h3 id="confidence-intervals-12">Confidence Intervals</h3>
+<h3 id="confidence-intervals-9">Confidence Intervals</h3>
 <p>My population in this example is the bag of dice. I want to estimate the average number of sides on the dice, <span class="math inline">\(\mu_{\text{sides}}\)</span>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>n1 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb1-2"><a href=""></a>sample1_dice <span class="ot">&lt;-</span> <span class="fu">sample</span>(dice, n1, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-3"><a href=""></a>mean1_dice <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample1_dice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>n1 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb3-2"><a href=""></a>sample1_dice <span class="ot">&lt;-</span> <span class="fu">sample</span>(dice, n1, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-3"><a href=""></a>mean1_dice <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample1_dice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>If I take a sample fo size <span class="math inline">\(n =\)</span> 5, I can calculate the sample mean <span class="math inline">\(\bar{x} =\)</span> 7.2.</p>
+<p>If I take a sample fo size <span class="math inline">\(n =\)</span> 5, I can calculate the sample mean <span class="math inline">\(\bar{x} =\)</span> 12.4.</p>
 </section>
 <section id="sample-mean-again" class="slide level2">
 <h2>Sample Mean Again</h2>
-<h3 id="confidence-intervals-13">Confidence Intervals</h3>
+<h3 id="confidence-intervals-10">Confidence Intervals</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -633,24 +670,24 @@ P(\mu &lt; L(X)) + P(\mu &gt; U(X)) = \alpha
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">12</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
 <td style="text-align: right;">10</td>
+<td style="text-align: right;">20</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
 </tr>
 </tbody>
 </table>
@@ -659,25 +696,51 @@ P(\mu &lt; L(X)) + P(\mu &gt; U(X)) = \alpha
 </div>
 </div>
 </div>
-<p>Lets repeat this process again. We take another sample of size <span class="math inline">\(n =\)</span> 5 and calculate the sample mean <span class="math inline">\(\bar{x} =\)</span> 11.6.</p>
+<p>Lets repeat this process again. We take another sample of size <span class="math inline">\(n =\)</span> 5 and calculate the sample mean <span class="math inline">\(\bar{x} =\)</span> 12.8.</p>
+</section>
+<section id="other-population-parameters" class="slide level2">
+<h2>Other Population Parameters</h2>
+<h3 id="confidence-intervals-11">Confidence Intervals</h3>
+<p>We can also use confidence intervals to estimate other population parameters. We might also be interested in:</p>
+<ol type="i">
+<li>The population variance <span class="math inline">\(\sigma^2\)</span>,</li>
+<li>The population standard deviation <span class="math inline">\(\sigma\)</span>, and</li>
+<li>The population proportion <span class="math inline">\(p\)</span>.</li>
+</ol>
+<p>This list is in no way exhaustive.</p>
 </section>
 <section>
 <section id="assessment" class="title-slide slide level1 center">
 <h1>Assessment</h1>
 
 </section>
+<section id="individual-work" class="slide level2">
+<h2>Individual Work</h2>
+<h3 id="formative-assessment">Formative Assessment</h3>
+<p>Describe a situation where using a confidence interval instead of a point estimate would be more effective in communicating a topic of interest. (Choose a topic that is related to your major)</p>
+<ul>
+<li><p>Links to cohort specific topics,</p></li>
+<li><p>Use case scenarios, and</p></li>
+<li><p>Identify context specific scenarios to shape future assessments.</p></li>
+</ul>
+</section>
 <section id="group-work" class="slide level2">
 <h2>Group Work</h2>
-<h3 id="assessment-1">Assessment</h3>
-<p>In your class</p>
+<h3 id="formative-assessment-1">Formative Assessment</h3>
+<p>The group work will be conducted in class the week after the lecture:</p>
+<ol type="a">
+<li><p>Provide a subjective <span class="math inline">\(95\%\)</span> confidence interval for a tutorial specific fact. Discuss.</p></li>
+<li><p>Repeat step (a) for a new fact but include a point estimate. Discuss.</p></li>
+<li><p>Create a <span class="math inline">\(95\%\)</span> confidence interval for a new fact using actual data and CLT. Discuss.</p></li>
+</ol>
 </section>
-<section id="formative" class="slide level2">
-<h2>Formative</h2>
-<h3 id="assessment-2">Assessment</h3>
+<section id="assessment-1" class="slide level2">
+<h2>Assessment</h2>
+<h3 id="summative-assessment">Summative Assessment</h3>
 </section>
-<section id="summative" class="slide level2">
-<h2>Summative</h2>
-<h3 id="assessment-3">Assessment</h3>
+<section id="final-exam" class="slide level2">
+<h2>Final Exam</h2>
+<h3 id="summative-assessment-1">Summative Assessment</h3>
 </section></section>
 <section>
 <section id="pedagogical-approach" class="title-slide slide level1 center">
@@ -687,6 +750,10 @@ P(\mu &lt; L(X)) + P(\mu &gt; U(X)) = \alpha
 <section id="choice-of-approach" class="slide level2">
 <h2>Choice of Approach</h2>
 <h3 id="pedagogical-approach-1">Pedagogical Approach</h3>
+<p><strong>Behaviourism:</strong> Due to the content heavy nature of statistics, the initial focus will be on rote learning and memorisation of key concepts.</p>
+<p><strong>Constructivism:</strong> Explored through Tutorials and Workshops, students will be able to construct their own understanding of the material.</p>
+<p><strong>Reflective:</strong> Through individual and group work, students will be able to reflect on their learning and identify areas for improvement.</p>
+<p><strong>Socratic:</strong> The end goal but finding a practical implementation is difficult.</p>
 </section></section>
 <section>
 <section id="educational-excellence" class="title-slide slide level1 center">
