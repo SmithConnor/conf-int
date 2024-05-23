@@ -12,7 +12,7 @@
 
   <meta name="author" content="Connor Smith">
   <meta name="dcterms.date" content="2024-05-23">
-  <title>Confidence Interval of the Mean</title>
+  <title>Confidence Intervals</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -100,6 +100,8 @@
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -394,7 +396,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Confidence Interval of the Mean</h1>
+  <h1 class="title">Confidence Intervals</h1>
   <p class="subtitle">How to be confident about your uncertainty</p>
 
 <div class="quarto-title-authors">
@@ -417,20 +419,35 @@ Connor Smith <a href="https://orcid.org/0000-0002-3955-4348" class="quarto-title
 <h2>An Initial Guess (Point Estimation)</h2>
 <h3 id="lecture-attendance">Lecture Attendance</h3>
 <p>At the beginning of semester, I guessed that the average lecture attendance would be <span class="math inline">\(105.2\)</span> students. <em>(Data collected from Weeks 1 to 7)</em></p>
+<div class="fragment">
 <ol type="i">
 <li>This was my best guess, but I was uncertain about it.</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="i">
 <li>I have a few tricks up my sleeve to help me be more confident about my estimate.</li>
 </ol>
+</div>
 </section>
 <section id="a-better-guess-interval-estimation" class="slide level2">
 <h2>A Better Guess (Interval Estimation)</h2>
 <h3 id="lecture-attendance-1">Lecture Attendance</h3>
 <p>I collected data from previous semesters and use this information to improve my estimate.</p>
+<div class="fragment">
 <ol type="i">
-<li><p>The smallest average attendance was <span class="math inline">\(81.1\)</span> students.</p></li>
-<li><p>The largest average attendance was <span class="math inline">\(118.9\)</span> students.</p></li>
+<li>The smallest average attendance was <span class="math inline">\(81.1\)</span> students.</li>
 </ol>
+</div>
+<div class="fragment">
+<ol start="2" type="i">
+<li>The largest average attendance was <span class="math inline">\(118.9\)</span> students.</li>
+</ol>
+</div>
+<div class="fragment">
 <p>So, to improve my estimate, I can say that the average lecture attendance will probably be between <span class="math inline">\(81.1\)</span> and <span class="math inline">\(118.9\)</span> students.</p>
+</div>
+<div class="fragment">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -441,6 +458,7 @@ Connor Smith <a href="https://orcid.org/0000-0002-3955-4348" class="quarto-title
 </div>
 <div class="callout-content">
 <p>I have been collecting data on lecture attendance for the first seven weeks of semester. The average attendance was <span class="math inline">\(95.2\)</span> students.</p>
+</div>
 </div>
 </div>
 </div>
@@ -472,13 +490,17 @@ Connor Smith <a href="https://orcid.org/0000-0002-3955-4348" class="quarto-title
 <h2>Desirable Properties</h2>
 <h3 id="confidence-intervals-1">Confidence Intervals</h3>
 <p><br></p>
+<div class="fragment">
 <ol type="1">
 <li>The confidence interval contains the true population parameter with a specified probability.</li>
 </ol>
+</div>
 <p><br></p>
+<div class="fragment">
 <ol start="2" type="1">
 <li>The interval is the shortest possible for a specified probability.</li>
 </ol>
+</div>
 </section>
 <section id="counting-dice-example" class="slide level2">
 <h2>Counting Dice Example</h2>
@@ -498,8 +520,8 @@ Connor Smith <a href="https://orcid.org/0000-0002-3955-4348" class="quarto-title
 </div>
 </div>
 </section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
+<section id="example-cont." class="slide level2">
+<h2>Example Cont.</h2>
 <h3 id="confidence-intervals-3">Confidence Intervals</h3>
 <p>After purchasing many different dice, I have a bag of <span class="math inline">\(n=100\)</span> dice.</p>
 <div class="columns">
@@ -565,8 +587,8 @@ Connor Smith <a href="https://orcid.org/0000-0002-3955-4348" class="quarto-title
 </div>
 </div>
 </section>
-<section id="central-limit-theorem" class="slide level2">
-<h2>Central Limit Theorem</h2>
+<section id="example-central-limit-theorem" class="slide level2">
+<h2>Example (Central Limit Theorem)</h2>
 <h3 id="confidence-intervals-4">Confidence Intervals</h3>
 <p>We have already learnt about the Central Limit Theorem (CLT) and some of its very useful properties. We now take a larger sample of size <span class="math inline">\(n=30\)</span>.</p>
 <div class="columns">
@@ -606,18 +628,18 @@ Connor Smith <a href="https://orcid.org/0000-0002-3955-4348" class="quarto-title
 </div>
 </div>
 </section>
-<section id="confidence-intervals-5" class="slide level2">
-<h2>Confidence Intervals</h2>
-<h3 id="confidence-intervals-6">Confidence Intervals</h3>
+<section id="example-confidence-interval" class="slide level2">
+<h2>Example (Confidence Interval)</h2>
+<h3 id="confidence-intervals-5">Confidence Intervals</h3>
 <p>We can combine the sample mean and the standard error to create a confidence interval. In the instance, I am interested in creating a <span class="math inline">\(95\%\)</span> confidence interval.</p>
 <p>A <span class="math inline">\(95\%\)</span> confidence interval for the population mean <span class="math inline">\(\mu_{sides}\)</span> is given by</p>
 <p><span class="math display">\[
 CI = ( 7.18 , 10.15 )
 \]</span></p>
 </section>
-<section id="actual-count" class="slide level2">
-<h2>Actual Count</h2>
-<h3 id="confidence-intervals-7">Confidence Intervals</h3>
+<section id="example-actual-count" class="slide level2">
+<h2>Example (Actual Count)</h2>
+<h3 id="confidence-intervals-6">Confidence Intervals</h3>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
@@ -671,7 +693,7 @@ CI = ( 7.18 , 10.15 )
 </section>
 <section id="how-confident-are-we" class="slide level2">
 <h2>How confident are we?</h2>
-<h3 id="confidence-intervals-8">Confidence Intervals</h3>
+<h3 id="confidence-intervals-7">Confidence Intervals</h3>
 <p>The confidence level of the interval is the probability that the interval contains the true population parameter.</p>
 <p><span class="math display">\[
 P(L(X) \leqslant \mu \leqslant U(X)) = 1 - \alpha
@@ -681,6 +703,22 @@ P(L(X) \leqslant \mu \leqslant U(X)) = 1 - \alpha
 P(\mu &lt; L(X)) + P(\mu &gt; U(X)) = \alpha
 \]</span></p>
 </section>
+<section id="normal-distribution" class="slide level2">
+<h2>Normal Distribution</h2>
+<h3 id="confidence-intervals-8">Confidence Intervals</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">xseq =</span> <span class="fu">seq</span>(<span class="fl">10.15</span><span class="dv">-4</span>,<span class="fl">10.15</span><span class="sc">+</span><span class="dv">4</span>,.<span class="dv">01</span>), <span class="at">densities =</span> <span class="fu">dnorm</span>(<span class="fu">seq</span>(<span class="fl">10.15</span><span class="dv">-4</span>,<span class="fl">10.15</span><span class="sc">+</span><span class="dv">4</span>,.<span class="dv">01</span>), <span class="fl">10.15</span>, <span class="fl">4.15</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">30</span>)))</span>
+<span id="cb4-2"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> xseq, <span class="at">y =</span> densities)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href=""></a> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Normal Distribution"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(</span>
+<span id="cb4-4"><a href=""></a><span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>),</span>
+<span id="cb4-5"><a href=""></a><span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>),</span>
+<span id="cb4-6"><a href=""></a><span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">24</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
 <section id="checking-our-confidence-interval" class="slide level2">
 <h2>Checking our Confidence interval</h2>
 <h3 id="confidence-intervals-9">Confidence Intervals</h3>
@@ -691,18 +729,18 @@ P(\mu &lt; L(X)) &amp; = P(\mu &lt; 7.18)\\
 &amp; = 0.025
 \end{align}\]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">pnorm</span>(<span class="fl">7.18</span>, <span class="fl">8.67</span>, <span class="fl">4.15</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">30</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">pnorm</span>(<span class="fl">7.18</span>, <span class="fl">8.67</span>, <span class="fl">4.15</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">30</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.02461917</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><span class="math display">\[\begin{align}
-P(\mu &gt; U(X)) &amp; = P(\mu &lt; 7.18)\\
+P(\mu &gt; U(X)) &amp; = P(\mu &gt; 10.15)\\
 &amp; = 0.025
 \end{align}\]</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">10.15</span>, <span class="fl">8.67</span>, <span class="fl">4.15</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">30</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">10.15</span>, <span class="fl">8.67</span>, <span class="fl">4.15</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">30</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.02539062</code></pre>
 </div>
@@ -714,93 +752,93 @@ P(\mu &gt; U(X)) &amp; = P(\mu &lt; 7.18)\\
 <h2>Interactive</h2>
 <h3 id="confidence-intervals-10">Confidence Intervals</h3>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="273" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 272;"><span id="cb8-273"><a href=""></a>textinfo <span class="op">=</span> <span class="fu">md</span><span class="vs">`</span></span>
-<span id="cb8-274"><a href=""></a><span class="vs">Out of a total of </span><span class="sc">${</span>nrep<span class="sc">}</span><span class="vs"> samples, </span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">sum</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> (mu <span class="op">&gt;=</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">&amp;&amp;</span> mu <span class="op">&lt;=</span> d<span class="op">.</span><span class="at">upper</span>)))<span class="sc">}</span><span class="vs"> (**&lt;span style="color:red"&gt;</span><span class="sc">${</span>(d3<span class="op">.</span><span class="fu">sum</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> (mu <span class="op">&gt;=</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">&amp;&amp;</span> mu <span class="op">&lt;=</span> d<span class="op">.</span><span class="at">upper</span>)))<span class="op">*</span><span class="dv">100</span><span class="op">/</span>nrep)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs">%&lt;/span&gt;**) of the </span><span class="sc">${</span>confidence<span class="sc">}</span><span class="vs">% confidence intervals contained the true population mean </span><span class="sc">${</span><span class="fu">tex</span><span class="vs">`</span><span class="sc">\m</span><span class="vs">u= `</span><span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>mu<span class="sc">}</span><span class="vs">.</span></span>
-<span id="cb8-275"><a href=""></a><span class="vs">`</span></span>
-<span id="cb8-276"><a href=""></a></span>
-<span id="cb8-277"><a href=""></a>viewof nrep <span class="op">=</span> <span class="fu">Scrubber</span>(d3<span class="op">.</span><span class="fu">ticks</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">1000</span><span class="op">,</span> <span class="dv">1000</span>)<span class="op">,</span> {</span>
-<span id="cb8-278"><a href=""></a>  <span class="dt">autoplay</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb8-279"><a href=""></a>  <span class="dt">loop</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
-<span id="cb8-280"><a href=""></a>  <span class="dt">initial</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
-<span id="cb8-281"><a href=""></a>  <span class="dt">delay</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb8-282"><a href=""></a>  <span class="dt">format</span><span class="op">:</span> x <span class="kw">=&gt;</span> <span class="vs">`Number of repeats = </span><span class="sc">${</span>x<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">0</span>)<span class="sc">}</span><span class="vs">`</span></span>
-<span id="cb8-283"><a href=""></a>})</span>
-<span id="cb8-284"><a href=""></a></span>
-<span id="cb8-285"><a href=""></a>plt <span class="op">=</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb8-286"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">fontSize</span><span class="op">:</span> <span class="st">"12px"</span>}<span class="op">,</span></span>
-<span id="cb8-287"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">960</span><span class="op">,</span></span>
-<span id="cb8-288"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb8-289"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Mean"</span><span class="op">,</span></span>
-<span id="cb8-290"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> lockvertical <span class="op">?</span> [mu<span class="op">-</span> <span class="dv">3</span><span class="op">,</span> mu <span class="op">+</span> <span class="dv">3</span>] <span class="op">:</span> [mu <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>sigma<span class="op">/</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(nobs)<span class="op">,</span>mu <span class="op">+</span> <span class="dv">5</span><span class="op">*</span>sigma<span class="op">/</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(nobs)]</span>
-<span id="cb8-291"><a href=""></a>  }<span class="op">,</span></span>
-<span id="cb8-292"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
-<span id="cb8-293"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Sample Number"</span><span class="op">,</span></span>
-<span id="cb8-294"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span>  [<span class="dv">0</span><span class="op">,</span> nrep]</span>
-<span id="cb8-295"><a href=""></a>  }<span class="op">,</span></span>
-<span id="cb8-296"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb8-297"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>])<span class="op">,</span>    </span>
-<span id="cb8-298"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>(data<span class="op">,</span> {</span>
-<span id="cb8-299"><a href=""></a>      <span class="dt">filter</span><span class="op">:</span> d <span class="kw">=&gt;</span> (d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> mu <span class="op">&gt;=</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">&amp;&amp;</span> mu <span class="op">&lt;=</span> d<span class="op">.</span><span class="at">upper</span>)<span class="op">,</span></span>
-<span id="cb8-300"><a href=""></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"rep"</span><span class="op">,</span></span>
-<span id="cb8-301"><a href=""></a>      <span class="dt">y1</span><span class="op">:</span> <span class="st">"lower"</span><span class="op">,</span></span>
-<span id="cb8-302"><a href=""></a>      <span class="dt">y2</span><span class="op">:</span> <span class="st">"upper"</span><span class="op">,</span>  </span>
-<span id="cb8-303"><a href=""></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#107895"</span><span class="op">,</span></span>
-<span id="cb8-304"><a href=""></a>      <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">1.5</span></span>
-<span id="cb8-305"><a href=""></a>    })<span class="op">,</span></span>
-<span id="cb8-306"><a href=""></a>    Plot<span class="op">.</span><span class="fu">dot</span>(data<span class="op">,</span> {<span class="dt">filter</span><span class="op">:</span> d <span class="kw">=&gt;</span> (d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> mu <span class="op">&gt;=</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">&amp;&amp;</span> mu <span class="op">&lt;=</span> d<span class="op">.</span><span class="at">upper</span>)<span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"rep"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"xbar"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#107895"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
-<span id="cb8-307"><a href=""></a></span>
-<span id="cb8-308"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>(data<span class="op">,</span> {</span>
-<span id="cb8-309"><a href=""></a>      <span class="dt">filter</span><span class="op">:</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> (mu <span class="op">&lt;</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">||</span> mu <span class="op">&gt;</span> d<span class="op">.</span><span class="at">upper</span>)<span class="op">,</span></span>
-<span id="cb8-310"><a href=""></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"rep"</span><span class="op">,</span></span>
-<span id="cb8-311"><a href=""></a>      <span class="dt">y1</span><span class="op">:</span> <span class="st">"lower"</span><span class="op">,</span></span>
-<span id="cb8-312"><a href=""></a>      <span class="dt">y2</span><span class="op">:</span> <span class="st">"upper"</span><span class="op">,</span>  </span>
-<span id="cb8-313"><a href=""></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span></span>
-<span id="cb8-314"><a href=""></a>      <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">1.5</span></span>
-<span id="cb8-315"><a href=""></a>    })<span class="op">,</span></span>
-<span id="cb8-316"><a href=""></a>    Plot<span class="op">.</span><span class="fu">dot</span>(data<span class="op">,</span> {<span class="dt">filter</span><span class="op">:</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> (mu <span class="op">&lt;</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">||</span> mu <span class="op">&gt;</span> d<span class="op">.</span><span class="at">upper</span>)<span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"rep"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"xbar"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
-<span id="cb8-317"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([mu]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"black"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">1.5</span>})</span>
-<span id="cb8-318"><a href=""></a></span>
-<span id="cb8-319"><a href=""></a>  ]</span>
-<span id="cb8-320"><a href=""></a>})</span>
-<span id="cb8-321"><a href=""></a></span>
-<span id="cb8-322"><a href=""></a>jstat <span class="op">=</span> <span class="pp">require</span>(<span class="st">'jstat'</span>)</span>
-<span id="cb8-323"><a href=""></a></span>
-<span id="cb8-324"><a href=""></a><span class="im">import</span> {Scrubber} <span class="im">from</span> <span class="st">"@mbostock/scrubber"</span></span>
-<span id="cb8-325"><a href=""></a></span>
-<span id="cb8-326"><a href=""></a><span class="kw">function</span> <span class="fu">simulate_means</span>(mu<span class="op">,</span> sigma<span class="op">,</span> nobs<span class="op">,</span> nrep){</span>
-<span id="cb8-327"><a href=""></a>  </span>
-<span id="cb8-328"><a href=""></a>  <span class="kw">const</span> tvalue <span class="op">=</span> jstat<span class="op">.</span><span class="at">studentt</span><span class="op">.</span><span class="fu">inv</span>(<span class="dv">1</span><span class="op">-</span>(<span class="dv">1</span><span class="op">-</span>(confidence<span class="op">/</span><span class="dv">100</span>))<span class="op">/</span><span class="dv">2</span><span class="op">,</span> nobs<span class="op">-</span><span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb8-329"><a href=""></a>  <span class="kw">var</span> data <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb8-330"><a href=""></a>  <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> nrep<span class="op">;</span> j<span class="op">++</span>){</span>
-<span id="cb8-331"><a href=""></a>        <span class="kw">let</span> sample <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(nobs)<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d3<span class="op">.</span><span class="fu">randomNormal</span>(mu<span class="op">,</span>sigma)())</span>
-<span id="cb8-332"><a href=""></a>        <span class="kw">let</span> xbar <span class="op">=</span> d3<span class="op">.</span><span class="fu">mean</span>(sample)</span>
-<span id="cb8-333"><a href=""></a>        <span class="kw">let</span> s <span class="op">=</span> jstat<span class="op">.</span><span class="fu">stdev</span>(sample<span class="op">,</span> <span class="kw">true</span>) </span>
-<span id="cb8-334"><a href=""></a>        <span class="kw">let</span> lower <span class="op">=</span> xbar <span class="op">-</span> tvalue<span class="op">*</span>s<span class="op">/</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(nobs)</span>
-<span id="cb8-335"><a href=""></a>        <span class="kw">let</span> upper <span class="op">=</span> xbar <span class="op">+</span> tvalue<span class="op">*</span>s<span class="op">/</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(nobs)</span>
-<span id="cb8-336"><a href=""></a>        data<span class="op">.</span><span class="fu">push</span>({<span class="dt">rep</span><span class="op">:</span> j<span class="op">,</span> <span class="dt">xbar</span><span class="op">:</span> xbar<span class="op">,</span> <span class="dt">lower</span><span class="op">:</span> lower<span class="op">,</span> <span class="dt">upper</span><span class="op">:</span> upper})</span>
-<span id="cb8-337"><a href=""></a>  }</span>
-<span id="cb8-338"><a href=""></a>  <span class="cf">return</span> data</span>
-<span id="cb8-339"><a href=""></a>}</span>
-<span id="cb8-340"><a href=""></a></span>
-<span id="cb8-341"><a href=""></a>mu <span class="op">=</span> <span class="fl">9.62</span></span>
-<span id="cb8-342"><a href=""></a></span>
-<span id="cb8-343"><a href=""></a>sigma <span class="op">=</span> <span class="fl">4.737088</span></span>
-<span id="cb8-344"><a href=""></a></span>
-<span id="cb8-345"><a href=""></a>confidence <span class="op">=</span> <span class="dv">95</span></span>
-<span id="cb8-346"><a href=""></a></span>
-<span id="cb8-347"><a href=""></a>nobs <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb8-348"><a href=""></a></span>
-<span id="cb8-349"><a href=""></a>lockvertical <span class="op">=</span> <span class="kw">false</span></span>
-<span id="cb8-350"><a href=""></a></span>
-<span id="cb8-351"><a href=""></a>data <span class="op">=</span> {</span>
-<span id="cb8-352"><a href=""></a>  nobs<span class="op">;</span></span>
-<span id="cb8-353"><a href=""></a>  mu<span class="op">;</span></span>
-<span id="cb8-354"><a href=""></a>  sigma<span class="op">;</span></span>
-<span id="cb8-355"><a href=""></a>  <span class="kw">const</span> d <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
-<span id="cb8-356"><a href=""></a>  <span class="kw">let</span> time <span class="op">=</span> d<span class="op">.</span><span class="fu">getTime</span>()<span class="op">;</span></span>
-<span id="cb8-357"><a href=""></a>  <span class="kw">const</span> data <span class="op">=</span> <span class="fu">simulate_means</span>(mu<span class="op">,</span> sigma<span class="op">,</span> nobs<span class="op">,</span> <span class="dv">1000</span>)</span>
-<span id="cb8-358"><a href=""></a>  <span class="cf">return</span> data</span>
-<span id="cb8-359"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="320" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 319;"><span id="cb9-320"><a href=""></a>textinfo <span class="op">=</span> <span class="fu">md</span><span class="vs">`</span></span>
+<span id="cb9-321"><a href=""></a><span class="vs">Out of a total of </span><span class="sc">${</span>nrep<span class="sc">}</span><span class="vs"> samples, </span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">sum</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> (mu <span class="op">&gt;=</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">&amp;&amp;</span> mu <span class="op">&lt;=</span> d<span class="op">.</span><span class="at">upper</span>)))<span class="sc">}</span><span class="vs"> (**&lt;span style="color:red"&gt;</span><span class="sc">${</span>(d3<span class="op">.</span><span class="fu">sum</span>(data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> (mu <span class="op">&gt;=</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">&amp;&amp;</span> mu <span class="op">&lt;=</span> d<span class="op">.</span><span class="at">upper</span>)))<span class="op">*</span><span class="dv">100</span><span class="op">/</span>nrep)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs">%&lt;/span&gt;**) of the </span><span class="sc">${</span>confidence<span class="sc">}</span><span class="vs">% confidence intervals contained the true population mean </span><span class="sc">${</span><span class="fu">tex</span><span class="vs">`</span><span class="sc">\m</span><span class="vs">u= `</span><span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>mu<span class="sc">}</span><span class="vs">.</span></span>
+<span id="cb9-322"><a href=""></a><span class="vs">`</span></span>
+<span id="cb9-323"><a href=""></a></span>
+<span id="cb9-324"><a href=""></a>viewof nrep <span class="op">=</span> <span class="fu">Scrubber</span>(d3<span class="op">.</span><span class="fu">ticks</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">1000</span><span class="op">,</span> <span class="dv">1000</span>)<span class="op">,</span> {</span>
+<span id="cb9-325"><a href=""></a>  <span class="dt">autoplay</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-326"><a href=""></a>  <span class="dt">loop</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-327"><a href=""></a>  <span class="dt">initial</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb9-328"><a href=""></a>  <span class="dt">delay</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb9-329"><a href=""></a>  <span class="dt">format</span><span class="op">:</span> x <span class="kw">=&gt;</span> <span class="vs">`Number of repeats = </span><span class="sc">${</span>x<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">0</span>)<span class="sc">}</span><span class="vs">`</span></span>
+<span id="cb9-330"><a href=""></a>})</span>
+<span id="cb9-331"><a href=""></a></span>
+<span id="cb9-332"><a href=""></a>plt <span class="op">=</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb9-333"><a href=""></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">fontSize</span><span class="op">:</span> <span class="st">"12px"</span>}<span class="op">,</span></span>
+<span id="cb9-334"><a href=""></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">960</span><span class="op">,</span></span>
+<span id="cb9-335"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb9-336"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Mean"</span><span class="op">,</span></span>
+<span id="cb9-337"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span> lockvertical <span class="op">?</span> [mu<span class="op">-</span> <span class="dv">3</span><span class="op">,</span> mu <span class="op">+</span> <span class="dv">3</span>] <span class="op">:</span> [mu <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>sigma<span class="op">/</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(nobs)<span class="op">,</span>mu <span class="op">+</span> <span class="dv">5</span><span class="op">*</span>sigma<span class="op">/</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(nobs)]</span>
+<span id="cb9-338"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb9-339"><a href=""></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb9-340"><a href=""></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Sample Number"</span><span class="op">,</span></span>
+<span id="cb9-341"><a href=""></a>    <span class="dt">domain</span><span class="op">:</span>  [<span class="dv">0</span><span class="op">,</span> nrep]</span>
+<span id="cb9-342"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb9-343"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb9-344"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>])<span class="op">,</span>    </span>
+<span id="cb9-345"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>(data<span class="op">,</span> {</span>
+<span id="cb9-346"><a href=""></a>      <span class="dt">filter</span><span class="op">:</span> d <span class="kw">=&gt;</span> (d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> mu <span class="op">&gt;=</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">&amp;&amp;</span> mu <span class="op">&lt;=</span> d<span class="op">.</span><span class="at">upper</span>)<span class="op">,</span></span>
+<span id="cb9-347"><a href=""></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"rep"</span><span class="op">,</span></span>
+<span id="cb9-348"><a href=""></a>      <span class="dt">y1</span><span class="op">:</span> <span class="st">"lower"</span><span class="op">,</span></span>
+<span id="cb9-349"><a href=""></a>      <span class="dt">y2</span><span class="op">:</span> <span class="st">"upper"</span><span class="op">,</span>  </span>
+<span id="cb9-350"><a href=""></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#107895"</span><span class="op">,</span></span>
+<span id="cb9-351"><a href=""></a>      <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">1.5</span></span>
+<span id="cb9-352"><a href=""></a>    })<span class="op">,</span></span>
+<span id="cb9-353"><a href=""></a>    Plot<span class="op">.</span><span class="fu">dot</span>(data<span class="op">,</span> {<span class="dt">filter</span><span class="op">:</span> d <span class="kw">=&gt;</span> (d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> mu <span class="op">&gt;=</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">&amp;&amp;</span> mu <span class="op">&lt;=</span> d<span class="op">.</span><span class="at">upper</span>)<span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"rep"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"xbar"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#107895"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
+<span id="cb9-354"><a href=""></a></span>
+<span id="cb9-355"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleX</span>(data<span class="op">,</span> {</span>
+<span id="cb9-356"><a href=""></a>      <span class="dt">filter</span><span class="op">:</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> (mu <span class="op">&lt;</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">||</span> mu <span class="op">&gt;</span> d<span class="op">.</span><span class="at">upper</span>)<span class="op">,</span></span>
+<span id="cb9-357"><a href=""></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"rep"</span><span class="op">,</span></span>
+<span id="cb9-358"><a href=""></a>      <span class="dt">y1</span><span class="op">:</span> <span class="st">"lower"</span><span class="op">,</span></span>
+<span id="cb9-359"><a href=""></a>      <span class="dt">y2</span><span class="op">:</span> <span class="st">"upper"</span><span class="op">,</span>  </span>
+<span id="cb9-360"><a href=""></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span></span>
+<span id="cb9-361"><a href=""></a>      <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">1.5</span></span>
+<span id="cb9-362"><a href=""></a>    })<span class="op">,</span></span>
+<span id="cb9-363"><a href=""></a>    Plot<span class="op">.</span><span class="fu">dot</span>(data<span class="op">,</span> {<span class="dt">filter</span><span class="op">:</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">rep</span> <span class="op">&lt;=</span> nrep <span class="op">&amp;&amp;</span> (mu <span class="op">&lt;</span> d<span class="op">.</span><span class="at">lower</span> <span class="op">||</span> mu <span class="op">&gt;</span> d<span class="op">.</span><span class="at">upper</span>)<span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"rep"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"xbar"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"red"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">3</span>})<span class="op">,</span></span>
+<span id="cb9-364"><a href=""></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([mu]<span class="op">,</span> {<span class="dt">stroke</span><span class="op">:</span> <span class="st">"black"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="fl">1.5</span>})</span>
+<span id="cb9-365"><a href=""></a></span>
+<span id="cb9-366"><a href=""></a>  ]</span>
+<span id="cb9-367"><a href=""></a>})</span>
+<span id="cb9-368"><a href=""></a></span>
+<span id="cb9-369"><a href=""></a>jstat <span class="op">=</span> <span class="pp">require</span>(<span class="st">'jstat'</span>)</span>
+<span id="cb9-370"><a href=""></a></span>
+<span id="cb9-371"><a href=""></a><span class="im">import</span> {Scrubber} <span class="im">from</span> <span class="st">"@mbostock/scrubber"</span></span>
+<span id="cb9-372"><a href=""></a></span>
+<span id="cb9-373"><a href=""></a><span class="kw">function</span> <span class="fu">simulate_means</span>(mu<span class="op">,</span> sigma<span class="op">,</span> nobs<span class="op">,</span> nrep){</span>
+<span id="cb9-374"><a href=""></a>  </span>
+<span id="cb9-375"><a href=""></a>  <span class="kw">const</span> tvalue <span class="op">=</span> jstat<span class="op">.</span><span class="at">studentt</span><span class="op">.</span><span class="fu">inv</span>(<span class="dv">1</span><span class="op">-</span>(<span class="dv">1</span><span class="op">-</span>(confidence<span class="op">/</span><span class="dv">100</span>))<span class="op">/</span><span class="dv">2</span><span class="op">,</span> nobs<span class="op">-</span><span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb9-376"><a href=""></a>  <span class="kw">var</span> data <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb9-377"><a href=""></a>  <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> nrep<span class="op">;</span> j<span class="op">++</span>){</span>
+<span id="cb9-378"><a href=""></a>        <span class="kw">let</span> sample <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(nobs)<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d3<span class="op">.</span><span class="fu">randomNormal</span>(mu<span class="op">,</span>sigma)())</span>
+<span id="cb9-379"><a href=""></a>        <span class="kw">let</span> xbar <span class="op">=</span> d3<span class="op">.</span><span class="fu">mean</span>(sample)</span>
+<span id="cb9-380"><a href=""></a>        <span class="kw">let</span> s <span class="op">=</span> jstat<span class="op">.</span><span class="fu">stdev</span>(sample<span class="op">,</span> <span class="kw">true</span>) </span>
+<span id="cb9-381"><a href=""></a>        <span class="kw">let</span> lower <span class="op">=</span> xbar <span class="op">-</span> tvalue<span class="op">*</span>s<span class="op">/</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(nobs)</span>
+<span id="cb9-382"><a href=""></a>        <span class="kw">let</span> upper <span class="op">=</span> xbar <span class="op">+</span> tvalue<span class="op">*</span>s<span class="op">/</span><span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(nobs)</span>
+<span id="cb9-383"><a href=""></a>        data<span class="op">.</span><span class="fu">push</span>({<span class="dt">rep</span><span class="op">:</span> j<span class="op">,</span> <span class="dt">xbar</span><span class="op">:</span> xbar<span class="op">,</span> <span class="dt">lower</span><span class="op">:</span> lower<span class="op">,</span> <span class="dt">upper</span><span class="op">:</span> upper})</span>
+<span id="cb9-384"><a href=""></a>  }</span>
+<span id="cb9-385"><a href=""></a>  <span class="cf">return</span> data</span>
+<span id="cb9-386"><a href=""></a>}</span>
+<span id="cb9-387"><a href=""></a></span>
+<span id="cb9-388"><a href=""></a>mu <span class="op">=</span> <span class="fl">9.62</span></span>
+<span id="cb9-389"><a href=""></a></span>
+<span id="cb9-390"><a href=""></a>sigma <span class="op">=</span> <span class="fl">4.737088</span></span>
+<span id="cb9-391"><a href=""></a></span>
+<span id="cb9-392"><a href=""></a>confidence <span class="op">=</span> <span class="dv">95</span></span>
+<span id="cb9-393"><a href=""></a></span>
+<span id="cb9-394"><a href=""></a>nobs <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb9-395"><a href=""></a></span>
+<span id="cb9-396"><a href=""></a>lockvertical <span class="op">=</span> <span class="kw">false</span></span>
+<span id="cb9-397"><a href=""></a></span>
+<span id="cb9-398"><a href=""></a>data <span class="op">=</span> {</span>
+<span id="cb9-399"><a href=""></a>  nobs<span class="op">;</span></span>
+<span id="cb9-400"><a href=""></a>  mu<span class="op">;</span></span>
+<span id="cb9-401"><a href=""></a>  sigma<span class="op">;</span></span>
+<span id="cb9-402"><a href=""></a>  <span class="kw">const</span> d <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
+<span id="cb9-403"><a href=""></a>  <span class="kw">let</span> time <span class="op">=</span> d<span class="op">.</span><span class="fu">getTime</span>()<span class="op">;</span></span>
+<span id="cb9-404"><a href=""></a>  <span class="kw">const</span> data <span class="op">=</span> <span class="fu">simulate_means</span>(mu<span class="op">,</span> sigma<span class="op">,</span> nobs<span class="op">,</span> <span class="dv">1000</span>)</span>
+<span id="cb9-405"><a href=""></a>  <span class="cf">return</span> data</span>
+<span id="cb9-406"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -1010,6 +1048,7 @@ P(\mu &gt; U(X)) &amp; = P(\mu &lt; 7.18)\\
   <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1030,7 +1069,8 @@ P(\mu &gt; U(X)) &amp; = P(\mu &lt; 7.18)\\
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"theme":"chalkboard","chalkboard-width":2,"boardmarkerWidth":2},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1201,7 +1241,7 @@ P(\mu &gt; U(X)) &amp; = P(\mu &lt; 7.18)\\
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,

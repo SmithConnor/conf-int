@@ -1,8 +1,12 @@
 ---
-title: Confidence Interval of the Mean
+title: Confidence Intervals
 subtitle: How to be confident about your uncertainty
 format: 
-    clean-revealjs
+    clean-revealjs:
+      chalkboard:
+        theme: "chalkboard"
+        chalkboard-width: 2
+        boardmarker-width: 2
 html-math-method:
   method: mathjax
   url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
@@ -28,8 +32,13 @@ set.seed(2405)
 
 At the beginning of semester, I guessed that the average lecture attendance would be $105.2$ students. *(Data collected from Weeks 1 to 7)*
 
+::: {.fragment}
 i.  This was my best guess, but I was uncertain about it.
+:::
+
+::: {.fragment}
 ii. I have a few tricks up my sleeve to help me be more confident about my estimate.
+:::
 
 ## A Better Guess (Interval Estimation)
 
@@ -37,16 +46,24 @@ ii. I have a few tricks up my sleeve to help me be more confident about my estim
 
 I collected data from previous semesters and use this information to improve my estimate.
 
+::: {.fragment}
 i.  The smallest average attendance was $81.1$ students.
+:::
 
+::: {.fragment}
 ii. The largest average attendance was $118.9$ students.
+:::
 
+::: {.fragment}
 So, to improve my estimate, I can say that the average lecture attendance will probably be between $81.1$ and $118.9$ students.
+:::
 
+::: {.fragment}
 ::: callout-important
 ## Actual Data
 
 I have been collecting data on lecture attendance for the first seven weeks of semester. The average attendance was $95.2$ students.
+:::
 :::
 
 ## Outline
@@ -75,11 +92,15 @@ Since $L(X)$ and $U(X)$ are a function of the random sample $X$, we will use our
 
 <br>
 
+::: {.fragment}
 1.  The confidence interval contains the true population parameter with a specified probability.
+:::
 
 <br>
 
+::: {.fragment}
 2.  The interval is the shortest possible for a specified probability.
+:::
 
 ## Counting Dice Example
 
@@ -99,7 +120,7 @@ I have a collection of dice with different numbers of sides. The sides of the di
 :::
 :::
 
-## Example
+## Example Cont.
 
 ### Confidence Intervals
 
@@ -134,12 +155,17 @@ Therefore $\bar{x} = (`r paste(sample1_dice, collapse = "+")`)/`r n1` = `r mean1
 ```{r}
 #| code-fold: true
 
-knitr::kable(data.frame(sample = 1:n1, sides = sample1_dice), caption = "First Sample", format = "html", col.names = c("Sample", "Sides"))
+knitr::kable(
+data.frame(sample = 1:n1, sides = sample1_dice),
+caption = "First Sample",
+format = "html",
+col.names = c("Sample", "Sides")
+)
 ```
 :::
 :::
 
-## Central Limit Theorem
+## Example (Central Limit Theorem)
 
 ### Confidence Intervals
 
@@ -181,7 +207,7 @@ ii. $s = `r round(sd(sample2_dice), 2)`$.
 :::
 ::::
 
-## Confidence Intervals
+## Example (Confidence Interval)
 
 ### Confidence Intervals
 
@@ -196,7 +222,7 @@ $$
 
 
 
-## Actual Count
+## Example (Actual Count)
 
 ### Confidence Intervals
 
@@ -205,7 +231,12 @@ $$
 ```{r}
 #| code-fold: true
 
-knitr::kable(table(dice), caption = "Dice in the bag", format = "html", col.names = c("Dice", "Count"))
+knitr::kable(
+table(dice),
+caption = "Dice in the bag",
+format = "html",
+col.names = c("Dice", "Count")
+)
 ```
 :::
 
@@ -232,6 +263,22 @@ $$
 P(\mu < L(X)) + P(\mu > U(X)) = \alpha
 $$
 
+## Normal Distribution
+
+### Confidence Intervals
+
+```{r}
+#| echo: true
+#| code-fold: true
+
+df <- data.frame(xseq = seq(10.15-4,10.15+4,.01), densities = dnorm(seq(10.15-4,10.15+4,.01), 10.15, 4.15/sqrt(30)))
+ggplot(data = df, aes(x = xseq, y = densities)) +
+ geom_point() + labs(title = "Normal Distribution", x = "", y = "Density") + theme_minimal() + theme(
+axis.text = element_text(size = 18),
+axis.title = element_text(size = 18),
+title = element_text(size = 24))
+```
+
 ## Checking our Confidence interval
 
 ### Confidence Intervals
@@ -252,7 +299,7 @@ pnorm(7.18, 8.67, 4.15/sqrt(30))
 
 ::: {.column width="50%"}
 \begin{align}
-P(\mu > U(X)) & = P(\mu < `r round(mean2_dice - 1.96*sd(sample2_dice)/sqrt(n2), 2)`)\\
+P(\mu > U(X)) & = P(\mu > `r round(mean2_dice + 1.96*sd(sample2_dice)/sqrt(n2), 2)`)\\
 & = 0.025
 \end{align}
 
