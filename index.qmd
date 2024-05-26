@@ -275,7 +275,7 @@ $$
 ### Confidence Intervals
 
 $$
-\bar{X} \overset{approx}\sim N(`r round(mean(sample2_dice),2)`, `r round(sd(sample2_dice),2)`^2/`r n2`)
+\bar{X} \overset{approx}\sim N(`r round(mean(dice),2)`, `r round(sd(dice),2)`^2/`r n2`)
 $$
 
 ```{r}
@@ -283,57 +283,13 @@ $$
 #| code-fold: true
 #| fig-align: center
 
-df <- data.frame(xseq = seq(mean(sample2_dice)-4,mean(sample2_dice)+4,.01), densities = dnorm(seq(mean(sample2_dice)-4,mean(sample2_dice)+4,.01), mean(sample2_dice) , sd(sample2_dice)/sqrt(30)))
+df <- data.frame(xseq = seq(mean(dice)-4,mean(dice)+4,.01), densities = dnorm(seq(mean(dice)-4,mean(dice)+4,.01), mean(dice) , sd(dice)/sqrt(30)))
 ggplot(data = df, aes(x = xseq, y = densities)) +
  geom_point() + labs(title = "Normal Distribution", x = "", y = "Density") + theme_minimal() + theme(
 axis.text = element_text(size = 18),
 axis.title = element_text(size = 18),
 title = element_text(size = 24))
 ```
-
-## Checking our Confidence interval
-
-### Confidence Intervals
-
-:::: columns
-
-::: {.column width="50%"}
-\begin{align}
-P(\bar{X} < L(x)) & = P(\bar{X} < `r round(conf_int[1], 2)`)\\
-& = 0.025
-\end{align}
-
-```{r}
-#| echo: true
-pnorm(7.12, 8.67, 4.15/sqrt(30))
-```
-:::
-
-::: {.column width="50%"}
-\begin{align}
-P(\bar{X} > U(x)) & = P(\bar{X} > `r round(conf_int[2], 2)`)\\
-& = 0.025
-\end{align}
-
-```{r}
-#| echo: true
-1 - pnorm(10.22, 8.67, 4.15/sqrt(30))
-```
-:::
-
-::::
-
-\begin{align}
-P(L(x) < \bar{X} < U(x)) & = P(7.12 < \bar{X} < 10.22)\\
-& = 1 - P(\bar{X} < 7.12) - P(\bar{X} > 10.22)\\
-& = 0.95
-\end{align}
-
-```{r}
-#| echo: true
-1 - pnorm(7.12, 8.67, 4.15/sqrt(30)) - (1 - pnorm(10.22, 8.67, 4.15/sqrt(30)))
-```
-
 
 ## Confidence Intervals (Interactive)
 
